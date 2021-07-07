@@ -1,7 +1,7 @@
 package byteBank.classes
 
 class ContaSalario(
-    titular: String,
+    titular: Cliente,
     numero: Int
 ) : Conta(
     titular = titular,

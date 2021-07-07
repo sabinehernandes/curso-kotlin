@@ -1,16 +1,24 @@
 package byteBank.funcoes
 
-import byteBank.classes.Conta
-import byteBank.classes.ContaCorrente
-import byteBank.classes.ContaPoupanca
+import byteBank.classes.*
 
 fun testeContasDiferentes() {
     val contaCorrente: Conta = ContaCorrente(
-        titular = "Alex",
+        titular = Cliente(
+            nome ="Alex",
+            cpf ="111.111.111-11",
+            senha = 222,
+            endereco = Endereco(
+                logradouro = "Rua Vergueiro"
+            )
+
+        ),
         numero = 1000
     )
 
-    val contaPoupanca: Conta = ContaPoupanca("Fran", 1001)
+    val fran = Cliente(nome = "Fran", cpf = "400.000.000-00", senha = 112)
+
+    val contaPoupanca: Conta = ContaPoupanca(fran, 1001)
 
     contaCorrente.deposita(1000.0)
     contaPoupanca.deposita(1000.0)
@@ -19,4 +27,8 @@ fun testeContasDiferentes() {
     contaPoupanca.saca(100.0)
 
     contaCorrente.transfere(100.0, contaPoupanca)
+
+    println("Titular: ${contaCorrente.titular.nome}")
+    println("CPF: ${contaCorrente.titular.cpf}")
+    println("CPF: ${contaCorrente.titular.endereco.logradouro}")
 }

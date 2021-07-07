@@ -1,18 +1,22 @@
 package byteBank.funcoes
 
-import byteBank.classes.Conta
-import byteBank.classes.ContaCorrente
-import byteBank.classes.ContaPoupanca
-import byteBank.classes.ContaSalario
+import byteBank.classes.*
 
 fun testeComportamentoConta() {
-    val contaSabine = ContaCorrente("Sabine Hernandes", 1001)
+
+    val sabine = Cliente(nome = "Sabine", cpf = "000.000.000-00", senha = 123)
+
+    val contaSabine = ContaCorrente(sabine, 1001)
     contaSabine.deposita(100.0)
 
-    val contaEmily = ContaPoupanca("Emily Durães", 1002)
+    val emily = Cliente(nome = "Emily", cpf = "100.000.000-00", senha = 456)
+
+    val contaEmily = ContaPoupanca(emily, 1002)
     contaEmily.deposita(-200.0)
 
-    val contaPamela = ContaSalario("Pâmela Garcia", 1003)
+    val pamela = Cliente(nome = "Pâmela", cpf = "200.000.000-00", senha = 789)
+
+    val contaPamela = ContaSalario(pamela, 1003)
     contaPamela.deposita(1000.0)
 
     contaEmily.deposita(200.0)

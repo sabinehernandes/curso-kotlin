@@ -1,7 +1,7 @@
 package byteBank.classes
 
 class ContaCorrente(
-    titular: String,
+    titular: Cliente,
     numero: Int
 ) : Conta(
     titular = titular,
@@ -27,7 +27,7 @@ class ContaCorrente(
         if (saldo >= valor) {
             saldo -= valor
             println(
-                "A transferência no valor de R$ $valor foi realizada para ${destino.titular}. " +
+                "A transferência no valor de R$ $valor foi realizada para ${destino.titular.nome}. " +
                         "O saldo da conta após a transferência é de R$ ${this.saldo} "
             )
         } else {
